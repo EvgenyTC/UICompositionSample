@@ -71,22 +71,14 @@
     <Compile Include="Model\IContentItemsProvider.cs" />
     <Compile Include="Model\ImageItem.cs" />
     <Compile Include="Model\TextItem.cs" />
-    <Compile Include="ViewModels\ImageEditorViewModel.cs" />
     <Compile Include="ViewModels\ImagePreviewViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\TextEditorViewModel.cs" />
     <Compile Include="ViewModels\TextPreviewViewModel.cs" />
-    <Compile Include="Views\ImageEditorView.xaml.cs">
-      <DependentUpon>ImageEditorView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ImagePreviewView.xaml.cs">
       <DependentUpon>ImagePreviewView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TextEditorView.xaml.cs">
-      <DependentUpon>TextEditorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TextPreviewView.xaml.cs">
       <DependentUpon>TextPreviewView.xaml</DependentUpon>
@@ -96,19 +88,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Page Include="Views\ImageEditorView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ImagePreviewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TextEditorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

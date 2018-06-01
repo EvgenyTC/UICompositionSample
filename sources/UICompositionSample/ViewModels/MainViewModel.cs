@@ -11,9 +11,27 @@ namespace UICompositionSample.ViewModels
 {
     public class MainViewModel: Screen
     {
+        //each item derive from IContentItem
         ObservableCollection<IContentItem> _items;
         public ObservableCollection<IContentItem> Items => _items;
 
+        IContentItem _selectedItem;
+        public IContentItem SelectedItem
+        {
+            get => _selectedItem;
+            set
+            {
+                if (_selectedItem != value)
+                {
+                    _selectedItem = value;
+                    //Update preview on changing of the selected item
+                    UpdatePreview(_selectedItem);
+                    NotifyOfPropertyChange(nameof(SelectedItem));
+                }
+            }
+        }
+
+        //preview ViewModel property for binding into view
         object _previewViewModel;
         public object PreviewViewModel
         {
@@ -28,21 +46,6 @@ namespace UICompositionSample.ViewModels
             }
         }
 
-        IContentItem _selectedItem;
-        public IContentItem SelectedItem
-        {
-            get => _selectedItem;
-            set
-            {
-                if (_selectedItem != value)
-                {
-                    _selectedItem = value;
-                    UpdatePreview(_selectedItem);
-                    NotifyOfPropertyChange(nameof(SelectedItem));
-                }
-            }
-        }
-
         public MainViewModel(IContentItemsProvider provider)
         {
             _items = new ObservableCollection<IContentItem>(provider.Data);
@@ -51,6 +54,8 @@ namespace UICompositionSample.ViewModels
 
         private void UpdatePreview(IContentItem item)
         {
+            //correct preview viewmodel is created 
+            //according to the type of the selected item
             if (item is TextItem)
             {
                 PreviewViewModel = new TextPreviewViewModel(item as TextItem);

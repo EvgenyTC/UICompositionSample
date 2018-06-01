@@ -19,6 +19,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <!--this is the way to tell Caliburn.Micro to inject here a view
+        that corresponds to the PreviewViewModel-->
         <ContentControl Grid.Column="1" cal:View.Model="{Binding PreviewViewModel}"/>
     </Grid>
 </Window>
